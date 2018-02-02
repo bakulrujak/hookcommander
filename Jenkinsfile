@@ -13,7 +13,7 @@ pipeline {
 		stage('String manipulation') {
 			
 			steps {
-				echo ${env.JOB_NAME}
+				echo "${env.JOB_NAME}"
 			}
 		}
 	}	
