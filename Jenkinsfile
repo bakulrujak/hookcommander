@@ -10,12 +10,10 @@ pipeline {
 			}
 		}
 		
-		stage('Run in retry mode') {
+		stage('String manipulation') {
 			
 			steps {
-				retry(3) {
-					sh "touch /root/this.txt"
-				}
+				echo ${env.JOB_NAME}
 			}
 		}
 	}	
