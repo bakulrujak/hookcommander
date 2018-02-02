@@ -1,13 +1,17 @@
 pipeline {
 	
 	agent any
-	
-	environment {
-		def j = ${env.JOB_NAME}.split('/')
-		BRANCH = j[2]
-	}
-	
 	stages {
+		
+		stage('set env') {
+			script {
+				def j = "${env.JOB_NAME}.split('/')"
+			}
+			
+			environment {
+				BRANCH = j[2]
+			}
+		}
 		
 		stage('Hello') {
 			steps {
