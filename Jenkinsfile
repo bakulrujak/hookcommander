@@ -13,7 +13,7 @@ pipeline {
 		stage('Run in retry mode') {
 			
 			options {
-				retry(3)
+				timeout(time: 1, unit: 'MINUTES')
 			}
 			
 			steps {
