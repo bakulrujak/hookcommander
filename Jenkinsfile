@@ -7,10 +7,7 @@ pipeline {
 			steps {
 				script {
 					def j = "${env.JOB_NAME}.split('/')"
-				}
-
-				environment {
-					BRANCH = j[2]
+					def BRANCH = j[2]
 				}
 			}
 		}
@@ -24,7 +21,7 @@ pipeline {
 		stage('String manipulation') {
 			
 			steps {
-				echo "{env.BRANCH}"
+				echo "$BRANCH"
 				echo "${env.JOB_NAME}"
 			}
 		}
