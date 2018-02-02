@@ -12,7 +12,7 @@ pipeline {
 		
 		stage('Run in retry mode') {
 			
-			opstions {
+			options {
 				retry(3)
 			}
 			
