@@ -4,12 +4,14 @@ pipeline {
 	stages {
 		
 		stage('set env') {
-			script {
-				def j = "${env.JOB_NAME}.split('/')"
-			}
-			
-			environment {
-				BRANCH = j[2]
+			steps {
+				script {
+					def j = "${env.JOB_NAME}.split('/')"
+				}
+
+				environment {
+					BRANCH = j[2]
+				}
 			}
 		}
 		
