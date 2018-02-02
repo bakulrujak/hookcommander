@@ -6,9 +6,10 @@ pipeline {
 		stage('set env') {
 			steps {
 				script {
-					def (x, y, z) = "${env.JOB_NAME}.split('/')"
+					def j = "${env.JOB_NAME}.split('/')"
 					// def BRANCH = j[2]
-					echo "${z}"
+					// echo "${BRANCH}"
+					echo "${j}"
 				}
 			}
 		}
@@ -24,7 +25,7 @@ pipeline {
 			steps {
 				// echo "$BRANCH"
 				echo "${env.JOB_NAME}"
-				echo "${z}"
+				// echo "${z}"
 			}
 		}
 	}	
