@@ -12,12 +12,10 @@ pipeline {
 		
 		stage('Run in retry mode') {
 			
-			options {
-				timeout(time: 1, unit: 'MINUTES')
-			}
-			
 			steps {
-				sh "touch /root/this.txt"
+				retry(3) {
+					sh "touch /root/this.txt"
+				}
 			}
 		}
 	}	
