@@ -1,7 +1,7 @@
 from utils.config import Config, main
 from repo import aws, jaguar
 from urllib import parse
-from flask import Flask, request
+from flask import Flask, request, jesonify
 
 app = Flask('__name__')
 
@@ -27,6 +27,10 @@ def jaguar_fb():
 def ping_default():
 	return "pong"
 
+@app.route('/deploy/ec2/<string:commit>', methods=['GET'])
+def deploy_ec2(commit):
+	return jsonify(aws.do_deploy(commit))
+	
 if __name__ == '__main__':
 	app.run(
 		host=main.host,
